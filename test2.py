@@ -1,3 +1,4 @@
+onascr = 1
 room = 0
 start = False
 a1 = False
@@ -13,7 +14,13 @@ while True:
         print("Thanks for playing!")
         break
     elif option == 3:
-        print("View Unlocked Endings - Coming Soon")
+        room = -2
+        onascr = 0
+        if a1 == True:
+            print("You killed yourself, Why (Ending 1)")
+        onascr = int(input("Leave(1)"))
+        if onascr == 1:
+            room = 0
         continue
     else:
         print("Invalid option, please choose 1, 2, or 3")
@@ -29,6 +36,9 @@ while True:
             case 1:
                 print("\n=== You Died, should we celebrate ===")
                 print("Game Over!")
+                if a1 == False:
+                    print("You've unlocked Ending 1")
+                a1 = True
                 play_again = int(input("Play again? (1) Yes (2) Return to Main Menu: "))
                 if play_again == 1:
                     room = 0
@@ -39,9 +49,9 @@ while True:
                     print("Invalid input, please choose 1 or 2")
             
             case 2:
-                print("\n=== You escape! ===")
-                print("Congratulations! You found your way out.")
-                room = int(input("(1) Continue to next level (2) Quit: "))
+                print("\n=== What now?! ===")
+                print("You can't really do anything yes?")
+                room = int(input("(1)Punch The Wall (2)Meditate in hopes that it gvies you the right energy:  "))
                 if room == 1:
                     room = 3
                 else:
@@ -49,17 +59,8 @@ while True:
                     room = 0
             
             case 3:
-                print("\n=== You enter a dark corridor ===")
-                print("(1) Go left (2) Go right")
-                room = int(input("Which path? "))
-                if room == 1:
-                    print("You found treasure!")
-                    start = False
-                    room = 0
-                elif room == 2:
-                    print("You hit a dead end.")
-                    room = 0
-            
+                print("test")
+
             case _:
                 print("Invalid room number!")
                 room = 0
